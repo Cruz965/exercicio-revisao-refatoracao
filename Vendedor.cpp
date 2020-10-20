@@ -2,13 +2,18 @@
 #include "Empregado.hpp"
 
 class Vendedor : public Empregado {
-
-  public:
-    std::string nome;  	  
-	
+ 
+  public:	  
 	double quotaTotalAnual() {
-	  return quotaMensalVendas * 12;
+	  return this->getQMV() * 12;
 	}
+     void print(double horas)  override {
+  std::cout << "Nome: " << this->getNome() << std::endl;
+  std::cout << "Salario Mes: " << this->pagamentoMes(horas) << std::endl;
+  std::cout << "Projetos: " << this->quotaTotalAnual() << std::endl;  
+  
+  }
+
 	
 };
 

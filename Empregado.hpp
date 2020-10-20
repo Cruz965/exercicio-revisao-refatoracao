@@ -5,12 +5,21 @@
 #include <string>
 
 class Empregado {
-	
-  public:
+	//coloquei os atributos como private
+    private:
+     std::string nome;
     double salarioHora;  
     double quotaMensalVendas;  
-
-
+    public:
+    //criando métodos get e set para a superclasse Empregado
+    double getQMV () const { return quotaMensalVendas;}
+    double getSalHora () const { return salarioHora;}
+    std::string getNome () const{return nome;};
+    void setNome (std::string name) {this->nome = name;};
+    void setQMV (double x) {this->quotaMensalVendas = x;};
+    void setSalHor (double y) {this->salarioHora = y;};
+    //fim dos set e get
+    
     double pagamentoMes(double horasTrabalhadas) {
  
       double t = horasTrabalhadas;
@@ -22,7 +31,9 @@ class Empregado {
       }
 	  return t * salarioHora;
     }
-	
+	//Criando uma função print pra tirar aquele tanto de cout da main;
+  virtual void print(double horas) = 0;
+
 };
 
 #endif
