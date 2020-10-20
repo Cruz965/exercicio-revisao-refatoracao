@@ -9,18 +9,39 @@ class Empregado {
     private:
      std::string nome;
     double salarioHora;  
-    double quotaMensalVendas;  
+  
     public:
-    //criando métodos get e set para a superclasse Empregado
-    double getQMV () const { return quotaMensalVendas;}
-    double getSalHora () const { return salarioHora;}
-    std::string getNome () const{return nome;};
-    void setNome (std::string name) {this->nome = name;};
-    void setQMV (double x) {this->quotaMensalVendas = x;};
-    void setSalHor (double y) {this->salarioHora = y;};
+    Empregado(std::string name, double salHor);
+    //criei métodos get e set para a superclasse Empregado
+    double getSalHora () const;
+    std::string getNome () const;
+    void setNome (std::string name);
+    void setSalHor (double y);
     //fim dos set e get
     
-    double pagamentoMes(double horasTrabalhadas) {
+    double pagamentoMes(double horasTrabalhadas);
+	//Criando uma função print pra tirar aquele tanto de cout da main;
+  void print(double horas);
+
+};
+
+     Empregado::Empregado(std::string name, double salHor) {
+         nome = name;
+         salarioHora = salHor;
+       
+     };
+
+
+    //criei métodos get e set para a superclasse Empregado
+    
+    double  Empregado::getSalHora () const { return salarioHora;}
+    std::string  Empregado::getNome () const{return nome;};
+    void  Empregado::setNome (std::string name) {this->nome = name;};
+    
+    void  Empregado::setSalHor (double y) {this->salarioHora = y;};
+    //fim dos set e get
+    
+    double  Empregado::pagamentoMes(double horasTrabalhadas) {
  
       double t = horasTrabalhadas;
 	  
@@ -31,9 +52,14 @@ class Empregado {
       }
 	  return t * salarioHora;
     }
-	//Criando uma função print pra tirar aquele tanto de cout da main;
-  virtual void print(double horas) = 0;
 
-};
+	//Criando uma função print pra tirar aquele tanto de cout da main;
+    void Empregado::print(double horas) {
+  std::cout << "Nome: " << this->getNome() << std::endl;
+  std::cout << "Salario Mes: " << this->pagamentoMes(horas) << std::endl; }
+ 
+
+
+
 
 #endif

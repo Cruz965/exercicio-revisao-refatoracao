@@ -1,13 +1,11 @@
-#include "Engenheiro.cpp"
-#include "Vendedor.cpp"
+#include "Empregado.hpp"
+#include "Engenheiro.hpp"
+#include "Vendedor.hpp"
 
 int main() {
 
-  Engenheiro eng1;
-  eng1.setNome("Joao Snow");
-  eng1.setSalHor(35);
-  eng1.setNdeProj(3); 
-  eng1.print(9.5);
+  Engenheiro* eng1 = new Engenheiro("Joao Snow",35,3);
+  eng1->print(9.5);
   std::cout << std::endl;
   
   Engenheiro eng2;
@@ -45,6 +43,6 @@ int main() {
   vend3.setQMV(4000);
   vend3.print(8);
   
-  
+  delete eng1;
   return 0;	
 }
