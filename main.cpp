@@ -40,9 +40,9 @@ int main() {
   std::cout << std::endl;  
 	
   Vendedor vend3;
-  vend1.setNome("Sonia Stark");
-  vend1.setSalHor(30);
-  vend1.setQMV(4000);
+  vend3.setNome("Sonia Stark");
+  vend3.setSalHor(30);
+  vend3.setQMV(4000);
   vend3.print(8);
   
   
